@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Movie Booking UI</title>
 
   <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -21,7 +24,7 @@
   <div class="topbar">
 
     <div class="logo">
-      HemanthCinefactory
+      bookmyshow
     </div>
 
     <div class="location">
@@ -45,8 +48,11 @@
 
   <!-- SEARCH -->
   <div class="search-box">
-    <input type="text"
-      placeholder="Search movies, events, venues...">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search movies, events, venues..."
+    />
   </div>
 
   <!-- NAVIGATION -->
@@ -71,6 +77,39 @@
     <p>
       Hindi • Telugu • Tamil • Kannada | UA | 3h 1m
     </p>
+
+  </div>
+
+  <!-- RECOMMENDED -->
+  <div class="section">
+
+    <div class="section-header">
+      <h2>Recommended Movies</h2>
+      <span>See All</span>
+    </div>
+
+    <div class="filters">
+      <button>All</button>
+      <button>Hindi</button>
+      <button>English</button>
+      <button>Kannada</button>
+      <button>Tamil</button>
+      <button>Telugu</button>
+    </div>
+
+    <div class="movie-grid" id="movieGrid"></div>
+
+  </div>
+
+  <!-- UPCOMING -->
+  <div class="section">
+
+    <div class="section-header">
+      <h2>Upcoming</h2>
+      <span>See All</span>
+    </div>
+
+    <div class="movie-grid" id="upcomingGrid"></div>
 
   </div>
 
