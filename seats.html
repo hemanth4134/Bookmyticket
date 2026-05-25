@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Seat Booking</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="seat-container">
+
+  <h1>Select Seats</h1>
+
+  <div class="seats-grid" id="seatsGrid"></div>
+
+  <button onclick="bookSeats()">
+    Confirm Booking
+  </button>
+
+</div>
+
+<script>
+
+const seatsGrid =
+  document.getElementById("seatsGrid");
+
+for(let i=1;i<=40;i++){
+
+  seatsGrid.innerHTML += `
+  
+    <div class="seat"
+      onclick="toggleSeat(this)">
+      ${i}
+    </div>
+  
+  `;
+}
+
+function toggleSeat(seat){
+  seat.classList.toggle("selected");
+}
+
+function bookSeats(){
+  alert("Seats Booked");
+  window.location.href="payment.html";
+}
+
+</script>
+
+</body>
+</html>
