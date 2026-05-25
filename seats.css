@@ -1,0 +1,22 @@
+.seat-container{
+  text-align:center;
+  padding:40px;
+}
+
+.seats-grid{
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:15px;
+  margin:40px 0;
+}
+
+.seat{
+  background:#171b45;
+  padding:20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.selected{
+  background:#ff3d5a;
+}
