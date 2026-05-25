@@ -1,0 +1,98 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0e1030;
+  color:#fff;
+  padding:20px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.logo{
+  color:#ff3d5a;
+  font-size:32px;
+  font-weight:700;
+}
+
+.location{
+  color:#d0d0d0;
+}
+
+.top-icons{
+  display:flex;
+  gap:10px;
+}
+
+.icon-box{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:#171b45;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.search-box{
+  background:#fff;
+  border-radius:14px;
+  padding:15px;
+  margin-bottom:20px;
+}
+
+.search-box input{
+  width:100%;
+  border:none;
+  outline:none;
+  font-size:16px;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  margin-bottom:30px;
+}
+
+.hero{
+  height:250px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#21438f,#ff365a);
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.tag{
+  background:#ffbe0b;
+  color:#000;
+  padding:8px 16px;
+  border-radius:8px;
+  width:max-content;
+  margin-bottom:15px;
+  font-weight:600;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#f1f1f1;
+}
