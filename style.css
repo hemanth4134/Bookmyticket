@@ -223,5 +223,41 @@ body{
   .movie-grid{
     grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   }
+  .auth-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.auth-card{
+  background:#171b45;
+  padding:40px;
+  border-radius:20px;
+  width:350px;
+}
+
+.auth-card h1{
+  margin-bottom:20px;
+}
+
+.auth-card input{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:10px;
+}
+
+.auth-card button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#ff3d5a;
+  color:white;
+  cursor:pointer;
+  margin-bottom:15px;
+}
 
 }
