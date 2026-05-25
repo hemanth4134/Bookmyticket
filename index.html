@@ -5,481 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Movie Booking UI</title>
 
-  <!-- Google Font -->
+  <link rel="stylesheet" href="style.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    body{
-      background:#0e1030;
-      color:#fff;
-      padding:20px;
-    }
-
-    .container{
-      max-width:1200px;
-      margin:auto;
-    }
-
-    /* HEADER */
-
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-    }
-
-    .logo{
-      color:#ff3d5a;
-      font-size:32px;
-      font-weight:700;
-    }
-
-    .location{
-      color:#d0d0d0;
-      font-size:18px;
-    }
-
-    .top-icons{
-      display:flex;
-      gap:12px;
-    }
-
-    .icon-box{
-      width:45px;
-      height:45px;
-      border-radius:12px;
-      background:#171b45;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      cursor:pointer;
-    }
-
-    /* SEARCH */
-
-    .search-box{
-      background:#fff;
-      border-radius:14px;
-      padding:16px 20px;
-      margin-bottom:25px;
-    }
-
-    .search-box input{
-      width:100%;
-      border:none;
-      outline:none;
-      font-size:18px;
-    }
-
-    /* NAV */
-
-    .nav-links{
-      display:flex;
-      gap:40px;
-      margin-bottom:30px;
-      color:#d0d0d0;
-      font-weight:500;
-    }
-
-    .nav-links div{
-      cursor:pointer;
-    }
-
-    /* HERO */
-
-    .hero{
-      height:250px;
-      border-radius:25px;
-      background:linear-gradient(135deg,#21438f,#ff365a);
-      padding:30px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      position:relative;
-      overflow:hidden;
-      margin-bottom:40px;
-    }
-
-    .tag{
-      background:#ffbe0b;
-      color:#000;
-      padding:8px 16px;
-      border-radius:8px;
-      width:max-content;
-      font-weight:600;
-      margin-bottom:15px;
-    }
-
-    .hero h1{
-      font-size:42px;
-      margin-bottom:10px;
-    }
-
-    .hero p{
-      color:#f0f0f0;
-    }
-
-    .slider-dots{
-      position:absolute;
-      right:25px;
-      bottom:20px;
-      display:flex;
-      gap:8px;
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:#fff;
-      opacity:0.4;
-    }
-
-    .dot.active{
-      width:30px;
-      border-radius:20px;
-      opacity:1;
-    }
-
-    /* SECTION */
-
-    .section{
-      margin-bottom:50px;
-    }
-
-    .section-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:25px;
-    }
-
-    .section-header h2{
-      font-size:32px;
-    }
-
-    .see-all{
-      color:#ff3d5a;
-      cursor:pointer;
-      font-weight:500;
-    }
-
-    /* FILTERS */
-
-    .filters{
-      display:flex;
-      gap:30px;
-      margin-bottom:25px;
-      color:#bdbdbd;
-    }
-
-    /* MOVIE CARDS */
-
-    .movie-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-    }
-
-    .movie-card{
-      background:#171b45;
-      border-radius:20px;
-      overflow:hidden;
-      transition:0.3s;
-      cursor:pointer;
-    }
-
-    .movie-card:hover{
-      transform:translateY(-5px);
-    }
-
-    .poster{
-      height:280px;
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:70px;
-    }
-
-    .purple{ background:linear-gradient(135deg,#4b0082,#2d006e); }
-    .blue{ background:linear-gradient(135deg,#003566,#001d3d); }
-    .red{ background:linear-gradient(135deg,#5f0000,#3d0000); }
-    .green{ background:linear-gradient(135deg,#005f00,#003d00); }
-    .orange{ background:linear-gradient(135deg,#6d3200,#4a1f00); }
-
-    .badge{
-      position:absolute;
-      top:15px;
-      left:15px;
-      background:#ff4d6d;
-      padding:6px 12px;
-      border-radius:8px;
-      font-size:12px;
-      font-weight:600;
-    }
-
-    .rating{
-      position:absolute;
-      bottom:15px;
-      right:15px;
-      background:#0e1030;
-      padding:5px 10px;
-      border-radius:8px;
-      color:#ffbe0b;
-      font-weight:600;
-      font-size:14px;
-    }
-
-    .movie-info{
-      padding:18px;
-    }
-
-    .movie-info h3{
-      margin-bottom:8px;
-      font-size:22px;
-    }
-
-    .movie-info p{
-      color:#b5b5b5;
-      margin-bottom:5px;
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:30px;
-      }
-
-      .nav-links{
-        overflow:auto;
-        white-space:nowrap;
-      }
-
-      .movie-grid{
-        grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      }
-
-      .poster{
-        height:220px;
-      }
-    }
-
-  </style>
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HEADER -->
-    <div class="topbar">
-      <div class="logo">bookmyshow</div>
+  <!-- HEADER -->
+  <div class="topbar">
 
-      <div class="location">
-        <i class="fa-solid fa-location-dot"></i>
-        Bengaluru
-      </div>
-
-      <div class="top-icons">
-        <div class="icon-box">
-          <i class="fa-solid fa-bell"></i>
-        </div>
-
-        <div class="icon-box">
-          <i class="fa-solid fa-user"></i>
-        </div>
-      </div>
+    <div class="logo">
+      bookmyshow
     </div>
 
-    <!-- SEARCH -->
-    <div class="search-box">
-      <input type="text" placeholder="Search movies, events, venues..." />
+    <div class="location">
+      <i class="fa-solid fa-location-dot"></i>
+      Bengaluru
     </div>
 
-    <!-- NAVIGATION -->
-    <div class="nav-links">
-      <div>Movies</div>
-      <div>Stream</div>
-      <div>Events</div>
-      <div>Sports</div>
-      <div>Plays</div>
-      <div>Activities</div>
-    </div>
+    <div class="top-icons">
 
-    <!-- HERO -->
-    <div class="hero">
-
-      <div class="tag">NOW SHOWING</div>
-
-      <h1>Kalki 2898 AD</h1>
-
-      <p>Hindi • Telugu • Tamil • Kannada | UA | 3h 1m</p>
-
-      <div class="slider-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
-
-    <!-- RECOMMENDED -->
-    <div class="section">
-
-      <div class="section-header">
-        <h2>Recommended Movies</h2>
-        <div class="see-all">See All</div>
+      <div class="icon-box">
+        <i class="fa-solid fa-bell"></i>
       </div>
 
-      <div class="filters">
-        <div>All</div>
-        <div>Hindi</div>
-        <div>English</div>
-        <div>Kannada</div>
-        <div>Tamil</div>
-        <div>Telugu</div>
+      <div class="icon-box">
+        <i class="fa-solid fa-user"></i>
       </div>
 
-      <div class="movie-grid">
-
-        <!-- CARD 1 -->
-        <div class="movie-card">
-          <div class="poster purple">
-            🎬
-            <div class="badge">PREMIERING</div>
-            <div class="rating">8.4</div>
-          </div>
-
-          <div class="movie-info">
-            <h3>Kalki 2898 AD</h3>
-            <p>Action/Sci-Fi</p>
-            <p>1.2L votes</p>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="movie-card">
-          <div class="poster blue">
-            🚀
-            <div class="badge">NEW</div>
-            <div class="rating">8.1</div>
-          </div>
-
-          <div class="movie-info">
-            <h3>Fighter</h3>
-            <p>Action</p>
-            <p>89K votes</p>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="movie-card">
-          <div class="poster red">
-            👁️
-            <div class="rating">7.9</div>
-          </div>
-
-          <div class="movie-info">
-            <h3>Dune: Part Two</h3>
-            <p>Sci-Fi/Adventure</p>
-            <p>76K votes</p>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="movie-card">
-          <div class="poster green">
-            🎭
-            <div class="rating">7.6</div>
-          </div>
-
-          <div class="movie-info">
-            <h3>Mufasa: The Lion King</h3>
-            <p>Animation</p>
-            <p>62K votes</p>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="movie-card">
-          <div class="poster orange">
-            ⚔️
-            <div class="badge">TRENDING</div>
-            <div class="rating">8.8</div>
-          </div>
-
-          <div class="movie-info">
-            <h3>Pushpa 2</h3>
-            <p>Action/Drama</p>
-            <p>2.1L votes</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- UPCOMING -->
-    <div class="section">
-
-      <div class="section-header">
-        <h2>Upcoming</h2>
-        <div class="see-all">See All</div>
-      </div>
-
-      <div class="movie-grid">
-
-        <div class="movie-card">
-          <div class="poster purple">🕷️</div>
-
-          <div class="movie-info">
-            <h3>Spider-Man: Beyond</h3>
-            <p>Marvel/Action</p>
-            <p>Releasing Jul 25</p>
-          </div>
-        </div>
-
-        <div class="movie-card">
-          <div class="poster">
-            🦸
-          </div>
-
-          <div class="movie-info">
-            <h3>Singham Returns 2</h3>
-            <p>Action</p>
-            <p>Releasing Aug 15</p>
-          </div>
-        </div>
-
-        <div class="movie-card">
-          <div class="poster blue">
-            🌊
-          </div>
-
-          <div class="movie-info">
-            <h3>Aquaman 3</h3>
-            <p>DC/Adventure</p>
-            <p>Releasing Sep 10</p>
-          </div>
-        </div>
-
-      </div>
     </div>
 
   </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input type="text"
+      placeholder="Search movies, events, venues...">
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="nav-links">
+    <div>Movies</div>
+    <div>Stream</div>
+    <div>Events</div>
+    <div>Sports</div>
+    <div>Plays</div>
+    <div>Activities</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="tag">
+      NOW SHOWING
+    </div>
+
+    <h1>Kalki 2898 AD</h1>
+
+    <p>
+      Hindi • Telugu • Tamil • Kannada | UA | 3h 1m
+    </p>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
